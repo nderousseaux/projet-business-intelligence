@@ -6,6 +6,8 @@ public class Image {
     public boolean _etoile;
     public boolean _boules;
 
+    public boolean _select = false;
+
     public static int _nbAttributs = 5;
 
     public Image(boolean neige, boolean guirlandes, boolean cadeaux, boolean etoile, boolean boules){
@@ -17,6 +19,9 @@ public class Image {
     }
 
 
+    public String toString(){
+        return "Neige : " + _neige  + "\n Guirlandes : " + _guirlandes + "\n Cadeaux : " + _cadeaux + "\n Etoile : " + _etoile + "\n boules : " + _boules;
+    }
 
 
 }

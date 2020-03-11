@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
 import java.awt.GridLayout;
+import java.awt.event.*;
+import java.awt.Color;
 
 public class Main{
 
@@ -18,12 +20,31 @@ public class Main{
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        f.setSize(350, 350);
+        f.setSize(1000, 1000);
 
         GridLayout grid = new GridLayout(4, 5, 10, 10);
         f.setLayout(grid);
 
-        f.add(new JButton("A"));
+        for(Image image:images){
+            JButton b = new JButton(image.toString());
+            b.setBackground(Color.RED);
+            b.addActionListener(new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e)
+                {
+                    if(b.getBackground() == Color.RED){
+                        b.setBackground(Color.GREEN);
+                    }
+                    else{
+                        b.setBackground(Color.RED);
+                    }
+                    image._select = !image._select;
+
+                    System.out.println(image._select);
+                }
+            });
+            f.add(b);
+        }
 
 
         f.pack();
