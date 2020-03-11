@@ -6,6 +6,8 @@ public class Image {
     public boolean _etoile;
     public boolean _boules;
 
+    public static int _nbAttributs = 5;
+
     public Image(boolean neige, boolean guirlandes, boolean cadeaux, boolean etoile, boolean boules){
         _neige = neige;
         _guirlandes = guirlandes;
@@ -15,6 +17,6 @@ public class Image {
     }
 
 
-)
+
 
 }
