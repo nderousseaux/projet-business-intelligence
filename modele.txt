@@ -1,0 +1,5 @@
+si neige && guirlande : OUI
+
+si neige && cadeaux : OUI
+
+si neige && guirlandes et cadeaux : NON

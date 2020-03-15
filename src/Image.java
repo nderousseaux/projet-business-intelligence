@@ -20,7 +20,7 @@ public class Image {
 
 
     public String toString(){
-        return "Neige : " + _neige  + "\n Guirlandes : " + _guirlandes + "\n Cadeaux : " + _cadeaux + "\n Etoile : " + _etoile + "\n boules : " + _boules;
+        return "<HTML>Neige : " + _neige  + "<br> Guirlandes : " + _guirlandes + "<br> Cadeaux : " + _cadeaux + "<br> Etoile : " + _etoile + "<br> boules : " + _boules + "<HTML";
     }
 
 
