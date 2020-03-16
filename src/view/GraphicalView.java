@@ -5,8 +5,13 @@ import weka.classifiers.trees.J48;
 import weka.gui.treevisualizer.PlaceNode2;
 import weka.gui.treevisualizer.TreeVisualizer;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 
 /**
  * La classe GraphicalView s'occupe de l'interface graphique de l'application.
@@ -56,7 +61,14 @@ public class GraphicalView {
         for (model.Image image : _controller.getImageList()) {
 
             //On crée le boutton
-            JButton b = new JButton(image.toString());
+            BufferedImage imageBuffered = genDisplayImage(image);
+            ImageIcon icon = new ImageIcon(imageBuffered);
+
+            //On redimensionne
+            ImageIcon iconRedi = new ImageIcon(icon.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+
+            JButton b = new JButton(iconRedi);
+
 
             //Il est rouge par défaut.
             b.setBackground(Color.RED);
@@ -68,9 +80,8 @@ public class GraphicalView {
                 } else {
                     b.setBackground(Color.RED);
                 }
+
                 image.setSelect(!image.isSelect());
-
-
             });
             //On ajoute le bouton
             pan.add(b);
@@ -108,6 +119,99 @@ public class GraphicalView {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Méthode pour générer une images
+     * @param image
+     * @return
+     */
+    private BufferedImage genDisplayImage(model.Image image) {
+        BufferedImage result = new BufferedImage(
+                638, 720, //Size of the image
+                BufferedImage.TYPE_INT_ARGB);
+
+
+        Graphics g = result.getGraphics();
+
+        
+        BufferedImage sapin = null;
+        try {
+            sapin = ImageIO.read(new File("src/view/img/base.png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        g.drawImage(sapin, 0, 0, null);
+
+        //Si il a des boules
+        if(image.isNeige()){
+            BufferedImage neige = null;
+            try {
+                neige = ImageIO.read(new File("src/view/img/neige.png"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            g.drawImage(neige, 0, 0, null);
+        }
+
+        if(image.isGuirlandes()){
+            BufferedImage guirlandes = null;
+            try {
+                guirlandes = ImageIO.read(new File("src/view/img/guirlandes.png"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            g.drawImage(guirlandes, 0, 0, null);
+        }
+
+        if(image.isBoules()){
+            BufferedImage boules = null;
+            try {
+                boules = ImageIO.read(new File("src/view/img/boules.png"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            g.drawImage(boules, 0, 0, null);
+        }
+
+        if(image.isCadeaux()){
+            BufferedImage cadeaux = null;
+            try {
+                cadeaux = ImageIO.read(new File("src/view/img/cadeaux.png"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            g.drawImage(cadeaux, 0, 0, null);
+        }
+
+        if(image.isEtoile()){
+            BufferedImage etoile = null;
+            try {
+                etoile = ImageIO.read(new File("src/view/img/etoile.png"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            g.drawImage(etoile, 0, 0, null);
+        }
+
+
+
+
+
+
+        try {
+            ImageIO.write(result,"png",new File("base.png"));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
     //endregion
 }
