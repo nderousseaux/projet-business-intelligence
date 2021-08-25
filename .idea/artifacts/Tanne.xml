@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="Tanne">
+    <output-path>$PROJECT_DIR$/out/artifacts/Tanne</output-path>
+    <root id="root">
+      <element id="archive" name="g4b.jar">
+        <element id="module-output" name="g4b" />
+      </element>
+      <element id="library" level="project" name="weka" />
+    </root>
+  </artifact>
+</component>

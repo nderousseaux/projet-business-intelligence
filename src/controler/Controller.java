@@ -103,34 +103,34 @@ public class Controller {
     private void initTrainingSet() {
         //On initialise les attributs
         FastVector fvCadeaux = new FastVector(2);
-        fvCadeaux.addElement("t");
-        fvCadeaux.addElement("f");
+        fvCadeaux.addElement("true");
+        fvCadeaux.addElement("false");
         Attribute attCadeaux = new Attribute("Cadeaux : ", fvCadeaux);
 
         FastVector fvEtoile = new FastVector(2);
-        fvEtoile.addElement("t");
-        fvEtoile.addElement("f");
+        fvEtoile.addElement("true");
+        fvEtoile.addElement("false");
         Attribute attEtoile = new Attribute("Etoile : ", fvEtoile);
 
         FastVector fvGuirlandes = new FastVector(2);
-        fvGuirlandes.addElement("t");
-        fvGuirlandes.addElement("f");
+        fvGuirlandes.addElement("true");
+        fvGuirlandes.addElement("false");
         Attribute attGuirlandes = new Attribute("Guirlandes : ", fvGuirlandes);
 
         FastVector fvNeige = new FastVector(2);
-        fvNeige.addElement("t");
-        fvNeige.addElement("f");
+        fvNeige.addElement("true");
+        fvNeige.addElement("false");
         Attribute attNeige = new Attribute("Neige : ", fvNeige);
 
         FastVector fvBoules = new FastVector(2);
-        fvBoules.addElement("t");
-        fvBoules.addElement("f");
+        fvBoules.addElement("true");
+        fvBoules.addElement("false");
         Attribute attBoules = new Attribute("Boules : ", fvBoules);
 
         //On définit la classe
         FastVector fvClasse = new FastVector(2);
-        fvClasse.addElement("t");
-        fvClasse.addElement("f");
+        fvClasse.addElement("true");
+        fvClasse.addElement("false");
         Attribute classe = new Attribute("Decision", fvClasse);
 
 
@@ -150,12 +150,12 @@ public class Controller {
         //On rempli le training set
         for (model.Image image : _imageList) {
             Instance instance = new Instance(6);
-            instance.setValue(attCadeaux, image.isCadeaux() ? "t" : "f");
-            instance.setValue(attEtoile, image.isEtoile() ? "t" : "f");
-            instance.setValue(attGuirlandes, image.isGuirlandes() ? "t" : "f");
-            instance.setValue(attNeige, image.isNeige() ? "t" : "f");
-            instance.setValue(attBoules, image.isBoules() ? "t" : "f");
-            instance.setValue(classe, image.isSelect() ? "t" : "f");
+            instance.setValue(attCadeaux, image.isCadeaux() ? "true" : "false");
+            instance.setValue(attEtoile, image.isEtoile() ? "true" : "false");
+            instance.setValue(attGuirlandes, image.isGuirlandes() ? "true" : "false");
+            instance.setValue(attNeige, image.isNeige() ? "true" : "false");
+            instance.setValue(attBoules, image.isBoules() ? "true" : "false");
+            instance.setValue(classe, image.isSelect() ? "true" : "false");
             _trainingSet.add(instance);
         }
 
